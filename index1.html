@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NovaCorp employee intranet portal">
+    <title>NovaCorp Intranet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Color Palette */
+            --primary-color: #6a4c93;  /* Purple */
+            --secondary-color: #1982c4;  /* Blue */
+            --accent-color: #ff595e;  /* Coral */
+            --success-color: #8ac926;  /* Green */
+            --warning-color: #ffca3a;  /* Yellow */
+            --highlight-color: #ff9f1c;  /* Orange */
+            
+            /* Neutral Colors */
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --black: #212529;
+            
+            /* Spacing */
+            --space-sm: 0.5rem;
+            --space-md: 1rem;
+            --space-lg: 1.5rem;
+            --space-xl: 2rem;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f5ff;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #8a5a44);
+            color: var(--white);
+            padding: var(--space-xl);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+        }
+        
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 20px;
+            border: none;
+            width: 250px;
+            font-size: 0.875rem;
+        }
+        
+        nav {
+            display: flex;
+            gap: var(--space-md);
+            font-size: 0.875rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        
+        nav a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .nav-divider {
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: var(--space-xl) auto;
+            padding: 0 var(--space-xl);
+        }
+
+        .welcome-banner {
+            background: linear-gradient(to right, var(--highlight-color), var(--accent-color));
+            color: var(--white);
+            padding: var(--space-xl);
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .welcome-banner h2 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        /* Dashboard Styles */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .dashboard-header h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .dashboard-header span {
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-lg);
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: var(--space-lg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: var(--space-lg);
+        }
+
+        /* News Section */
+        .news-section {
+            background-color: #e3f2fd;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .news-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .news-item {
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
+
+        .news-time {
+            color: var(--dark-gray);
+            font-size: 0.75rem;
+        }
+
+        .news-bullet {
+            color: var(--dark-gray);
+        }
+
+        .news-title {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .news-excerpt {
+            color: var(--black);
+            margin-bottom: var(--space-sm);
+            font-size: 0.875rem;
+        }
+
+        .news-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        /* Events Section */
+        .events-section {
+            background-color: #fff8e1;
+            border: 2px solid var(--warning-color);
+        }
+
+        .event-item {
+            margin-bottom: var(--space-lg);
+        }
+
+        .event-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .event-item h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+        }
+
+        .event-time {
+            color: var(--dark-gray);
+            font-size: 0.75rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .event-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .event-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Spotlight Section */
+        .spotlight-section {
+            background-color: #e8f5e9;
+            border: 2px solid var(--success-color);
+        }
+
+        .employee-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            background: linear-gradient(135deg, #a5d8ff, #74b9ff);
+            border-radius: 8px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .employee-avatar img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .employee-info h5 {
+            color: var(--primary-color);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
+        .employee-info p {
+            color: var(--dark-gray);
+            margin: 0 0 var(--space-sm) 0;
+            font-size: 0.875rem;
+        }
+
+        .learn-more {
+            color: var(--highlight-color);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
+
+        .quick-resources {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm);
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .resource-item:nth-child(1) {
+            background-color: #ffecb3;
+        }
+        .resource-item:nth-child(2) {
+            background-color: #c8e6c9;
+        }
+        .resource-item:nth-child(3) {
+            background-color: #bbdefb;
+        }
+        .resource-item:nth-child(4) {
+            background-color: #e1bee7;
+        }
+
+        .resource-icon img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .resource-info h6 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 0.875rem;
+        }
+
+        .resource-info p {
+            color: var(--dark-gray);
+            margin: 0;
+            font-size: 0.75rem;
+        }
+
+        /* Agenda Section */
+        .agenda-section {
+            background-color: #f3e5f5;
+        }
+
+        .agenda-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .agenda-item {
+            padding: var(--space-md);
+            border-radius: 4px;
+            transition: transform 0.2s;
+        }
+
+        .agenda-item:nth-child(1) {
+            border-left: 4px solid var(--secondary-color);
+            background-color: #e3f2fd;
+        }
+        .agenda-item:nth-child(2) {
+            border-left: 4px solid var(--success-color);
+            background-color: #e8f5e9;
+        }
+        .agenda-item:nth-child(3) {
+            border-left: 4px solid var(--warning-color);
+            background-color: #fff8e1;
+        }
+        .agenda-item:nth-child(4) {
+            border-left: 4px solid var(--accent-color);
+            background-color: #ffebee;
+        }
+
+        .agenda-item h4 {
+            color: var(--primary-color);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
+        .agenda-description {
+            color: var(--black);
+            margin: 0 0 var(--space-sm) 0;
+            font-size: 0.875rem;
+        }
+
+        .agenda-time {
+            color: var(--dark-gray);
+            font-size: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color), #4a148c);
+            color: var(--white);
+            padding: var(--space-xl);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-about h3 {
+            font-size: 1.5rem;
+            margin: 0 0 var(--space-md) 0;
+        }
+
+        .footer-about p {
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.125rem;
+            margin: 0 0 var(--space-md) 0;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .footer-contact p {
+            margin: 0 0 var(--space-sm) 0;
+            opacity: 0.9;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .footer-legal a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.75rem;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+
+        .footer-legal a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--white);
+            border-radius: 3px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+                position: absolute;
+                top: 1.5rem;
+                right: 2rem;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            body {
+                font-size: 14px;
+            }
+            
+            .quick-resources {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+            
+            .footer-legal {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+                <h1>NovaCorp</h1>
+                <div class="search-box">
+                    <input type="text" placeholder="Search Intranet.." aria-label="Search intranet">
+                </div>
+                <div class="theme-toggle">
+                    <button id="themeToggle" aria-label="Toggle theme">
+                        <span class="light-icon">☀️</span>
+                        <span class="dark-icon">🌙</span>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Office-Flavored Widgets -->
+
+
+<div class="widget meeting-tracker">
+  <h3>Next Up: All-Hands Meeting</h3>
+  <button id="joinMeeting">Join Zoom</button>
+</div>
+            <nav>
+                <a href="#">Innovation Hub</a>
+                <span class="nav-divider" aria-hidden="true">-</span>
+                <a href="#">Employee Portal</a>
+                <span class="nav-divider" aria-hidden="true">-</span>
+                <a href="#">Future Workspace</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome-banner">
+            <h2>Welcome to NovaCorp</h2>
+        </section>
+
+        <section class="dashboard">
+            <div class="dashboard-header">
+                <h3>Explore Dashboard</h3>
+                <span>Quick Actions</span>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- News Section -->
+                <div class="news-section card">
+                    <h3>Company News and Announcements</h3>
+                    <div class="news-items">
+                        <div class="news-item">
+                            <div class="news-meta">
+                                <span class="news-time">2 hours ago</span>
+                                <span class="news-bullet" aria-hidden="true">•</span>
+                                <span class="news-title">Q4 Results Announced</span>
+                            </div>
+                            <p class="news-excerpt">NowScope exceeded expectations with 25% growth in Q4. Our innovative solutions continue to drive success...</p>
+                            <a href="#" class="news-link">Read More</a>
+                        </div>
+                        
+                        <div class="news-item">
+                            <div class="news-meta">
+                                <span class="news-time">1 day ago</span>
+                                <span class="news-bullet" aria-hidden="true">•</span>
+                                <span class="news-title">New Employee Benefits</span>
+                            </div>
+                            <p class="news-excerpt">Enhanced healthcare and wellness benefits now available. Mental health support and flexible working arrangements...</p>
+                            <a href="#" class="news-link">Read More</a>
+                        </div>
+                        
+                        <div class="news-item">
+                            <div class="news-meta">
+                                <span class="news-time">3 days ago</span>
+                                <span class="news-bullet" aria-hidden="true">•</span>
+                                <span class="news-title">Innovation Lab Opening</span>
+                            </div>
+                            <p class="news-excerpt">Our new state-of-the-art innovation lab is now open. Featuring VR development stations and AI research facilities...</p>
+                            <a href="#" class="news-link">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Events Section -->
+                <div class="events-section card">
+                    <h3>Upcoming Events</h3>
+                    <div class="event-item">
+                        <h4>Quarterly All-Hands</h4>
+                        <p class="event-time">Monday, March 25th - 2:00 PM - 4:00 PM</p>
+                        <p>CEO presentation on company performance, upcoming initiatives, and Q&A session with leadership team.</p>
+                        <button class="event-btn">Add to Calendar</button>
+                    </div>
+                    <div class="event-item">
+                        <h4>Team Building Retreat</h4>
+                        <p class="event-time">Saturday, March 23rd • 10:00 AM - 6:00 PM</p>
+                        <p>Escape to the mountains for a day of team building activities, outdoor adventures, and street scenes.</p>
+                        <button class="event-btn">Join Event</button>
+                    </div>
+                </div>
+                
+                <!-- Spotlight Section -->
+                <div class="spotlight-section card">
+                    <h3>Team Spotlight</h3>
+                    <h4>Quick Resources</h4>
+                    <div class="employee-card">
+                        <div class="employee-avatar">
+                            <img src="ff.jpg" alt="Sarah Martinez portrait" width="50" height="50">
+                        </div>
+                        <div class="employee-info">
+                            <h5>Sarah Martinez</h5>
+                            <p>Senior AI Engineer</p>
+                            <a href="#" class="learn-more">Hover to learn more</a>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-resources">
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <img src="ff.jpg" alt="Handbook icon" width="24" height="24">
+                            </div>
+                            <div class="resource-info">
+                                <h6>Employee Handbook</h6>
+                                <p>Policies & Guidelines</p>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <img src="do.jpg" alt="Payroll icon" width="24" height="24">
+                            </div>
+                            <div class="resource-info">
+                                <h6>Payroll Portal</h6>
+                                <p>Salary & Benefits</p>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <img src="cal.png" alt="Calendar icon" width="24" height="24">
+                            </div>
+                            <div class="resource-info">
+                                <h6>Time Off</h6>
+                                <p>Request & Track</p>
+                            </div>
+                        </div>
+                        
+                        <div class="resource-item">
+                            <div class="resource-icon">
+                                <img src="sup.png" alt="Support icon" width="24" height="24">
+                            </div>
+                            <div class="resource-info">
+                                <h6>IT Support</h6>
+                                <p>Help & Tickets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Agenda Section -->
+                <div class="agenda-section card">
+                    <h3>Today's Agenda</h3>
+                    <div class="agenda-items">
+                        <div class="agenda-item">
+                            <h4>Team Standup</h4>
+                            <p class="agenda-description">Daily sync with development team</p>
+                            <p class="agenda-time">9:00 AM - 9:30 AM</p>
+                        </div>
+                        <div class="agenda-item">
+                            <h4>Innovation Workshop</h4>
+                            <p class="agenda-description">Brainstorming session for new features</p>
+                            <p class="agenda-time">2:00 PM - 4:00 PM</p>
+                        </div>
+                        <div class="agenda-item">
+                            <h4>Client Presentation</h4>
+                            <p class="agenda-description">Q1 project review with stakeholders</p>
+                            <p class="agenda-time">11:00 AM - 12:00 PM</p>
+                        </div>
+                        <div class="agenda-item">
+                            <h4>Code Review Session</h4>
+                            <p class="agenda-description">Review and merge pending pull requests</p>
+                            <p class="agenda-time">4:30 PM - 5:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>NovaCorp</h3>
+                <p>Innovating for tomorrow, delivering today. Building the future of technology with passion and precision.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Employee Portal</a></li>
+                    <li><a href="#">IT Support</a></li>
+                    <li><a href="#">HR Resources</a></li>
+                    <li><a href="#">Company Directory</a></li>
+                    <li><a href="#">Training Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>123 Innovation Drive, Tech City</p>
+                <p>contact@novacorp.com</p>
+                <p>+1 (555) 123-4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 NovaCorp. All rights reserved. | Employee Intranet Portal v3.0</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
