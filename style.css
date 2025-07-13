@@ -271,6 +271,27 @@ nav span {
 #themeToggle:hover {
   transform: scale(1.1);
 }
+/* Dark Mode Specific Styles */
+[data-theme="dark"] {
+    --primary-bg: #121212;
+    --secondary-bg: #1e1e1e;
+    --text-color: #f5f5f5;
+    --text-light: #aaaaaa;
+    --header-bg: #1a1a1a;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    
+    /* Ensure colors remain visible in dark mode */
+    --primary-color: #6a4c93;
+    --secondary-color: #3498db;
+    --accent-color: #ff7043;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --highlight-orange: #ffab40;
+    --highlight-orange-light: #ffcc80;
+    --highlight-orange-dark: #ff9100;
+}
 
 #themeToggle[aria-pressed="true"] {
   color: var(--highlight-orange);
@@ -1177,4 +1198,9 @@ footer {
   footer {
     display: none;
   }
+}
+.footer-bottom p {
+    color: white !important; /* Forces white color */
+    /* If you're already using a class, you can add: */
+    /* color: var(--white) !important; */
 }

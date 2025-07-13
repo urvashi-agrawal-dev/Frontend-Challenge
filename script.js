@@ -341,6 +341,16 @@ window.addEventListener('error', (event) => {
     alert(`An error occurred: ${event.message}`);
 });
 
+document.getElementById('themeToggle').addEventListener('click', function() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Update button icon
+    this.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+});
+
 // Service worker registration for PWA capabilities
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
