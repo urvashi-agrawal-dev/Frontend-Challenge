@@ -988,16 +988,55 @@ footer {
 [data-theme="dark"] .news-section {
   background: linear-gradient(135deg, #6b8e23 0%, #556b2f 100%);
 }
-/* Add to your CSS */
-.event-card {
-  background: rgba(255,255,255,0.9); /* Slightly transparent */
-  border-left: 4px solid #f2910a; /* Orange accent */
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0 8px 8px 0;
+/* Add this to your dark mode overrides */
+/* Light Mode */
+.events-section .event-item h4 {
+  color: #ff7043; /* Deep orange */
 }
 
-[data-theme="dark"] .event-card {
-  background: rgba(30,30,30,0.9);
-  border-left-color: #edaa0f; /* Yellow accent */
+.events-section .event-description {
+  color: #ff8a65; /* Medium orange */
+}
+
+/* Dark Mode */
+[data-theme="dark"] .events-section .event-item h4 {
+  color: #ffab40; /* Brighter orange */
+}
+
+[data-theme="dark"] .events-section .event-description {
+  color: #ffcc80; /* Light orange */
+}
+
+/* Event Time Styling */
+/* Add gradient backgrounds to event cards */
+.events-section .event-item {
+  background: linear-gradient(to right, rgba(255, 112, 67, 0.1), transparent);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+[data-theme="dark"] .events-section .event-item {
+  background: linear-gradient(to right, rgba(255, 171, 64, 0.15), transparent);
+}
+
+/* Hover effects */
+.events-section .event-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(255, 112, 67, 0.2);
+}
+
+[data-theme="dark"] .events-section .event-item:hover {
+  box-shadow: 0 4px 8px rgba(255, 171, 64, 0.3);
+}
+/* Optional: Add decorative elements */
+.events-section .event-item:nth-child(1) p::before,
+.events-section .event-item:nth-child(2) p::before {
+  content: "• ";
+  color: #FF6D00;
+  font-weight: bold;
+}
+
+[data-theme="dark"] .events-section .event-item p::before {
+  color: #FFAB40;
 }
