@@ -303,7 +303,7 @@ nav span {
 
 /* Events Section */
 .events-section {
-    background-color: var(--card-bg);
+    background-color: yellowgreen;
     border-radius: var(--border-radius);
     padding: calc(var(--base-spacing) * 1.5);
     box-shadow: 0 4px 6px var(--shadow-color);
@@ -980,4 +980,27 @@ footer {
 
 [data-theme="dark"] .agenda-item h4 {
   color: #ffffff; /* Pure white for headings */
+}
+.news-section {
+  background: linear-gradient(135deg, #9acd32 0%, #a2d729 100%);
+}
+
+[data-theme="dark"] .news-section {
+  background: linear-gradient(135deg, #6b8e23 0%, #556b2f 100%);
+}
+/* Add to your CSS */
+.event-title {
+  background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
+
+.event-description {
+  color: #5E5E5E; /* Dark gray for light mode */
+}
+
+[data-theme="dark"] .event-description {
+  color: #E0E0E0; /* Light gray for dark mode */
 }
