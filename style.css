@@ -276,31 +276,34 @@ nav span {
   right: 1rem;
   z-index: 100;
 }
-
+/* Theme toggle button styling */
 #themeToggle {
-  background: rgba(0,0,0,0.1);
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    position: relative;
 }
 
-/* Light mode button styling */
-[data-theme="light"] #themeToggle {
-  background: rgba(0,0,0,0.05);
-  color: #333;
+/* Hide/show icons based on theme */
+[data-theme="light"] .dark-icon,
+[data-theme="dark"] .light-icon {
+    display: inline;
 }
 
-/* Dark mode button styling */
-[data-theme="dark"] #themeToggle {
-  background: rgba(255,255,255,0.1);
-  color: #fff;
+[data-theme="light"] .light-icon,
+[data-theme="dark"] .dark-icon {
+    display: none;
+}
+
+/* Optional: Add transition effects */
+.light-icon, .dark-icon {
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #themeToggle:hover {
