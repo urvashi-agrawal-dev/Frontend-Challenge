@@ -7,7 +7,7 @@
 *(Light/Dark mode toggle showing the dashboard)*  
 
 ## 🚀 Live Demo  
-👉 **[Try it on Vercel](https://your-project-name.vercel.app)**  
+👉 frontend-challenge-a3xn.vercel.app
 
 ## 🎯 Features  
 - **Theme-Aware UI**: Auto-switching light/dark mode with `prefers-color-scheme`.  
