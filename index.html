@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="NovaCorp employee intranet portal">
     <title>NovaCorp Intranet</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
     <style>
         :root {
             /* Color Palette */
@@ -43,7 +42,7 @@
 
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary-color), #8a5a44);
+            background: linear-gradient(135deg, var(--primary-color), #8a5a44;
             color: var(--white);
             padding: var(--space-xl);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -565,6 +564,36 @@
                 justify-content: center;
             }
         }
+
+        /* Meeting Tracker Widget */
+        .meeting-tracker {
+            background-color: var(--white);
+            padding: var(--space-md);
+            border-radius: 8px;
+            margin-bottom: var(--space-md);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .meeting-tracker h3 {
+            color: var(--primary-color);
+            margin: 0 0 var(--space-sm) 0;
+            font-size: 1rem;
+        }
+
+        #joinMeeting {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #joinMeeting:hover {
+            background-color: #1565c0;
+        }
     </style>
 </head>
 <body>
@@ -573,7 +602,7 @@
             <div class="header-top">
                 <h1>NovaCorp</h1>
                 <div class="search-box">
-                    <input type="text" placeholder="Search Intranet.." aria-label="Search intranet">
+                    <input type="text" placeholder="Search Intranet..." aria-label="Search intranet">
                 </div>
                 <div class="theme-toggle">
                     <button id="themeToggle" aria-label="Toggle theme">
@@ -587,18 +616,18 @@
                 <span></span>
                 <span></span>
             </div>
-            <!-- Office-Flavored Widgets -->
-
-
-<div class="widget meeting-tracker">
-  <h3>Next Up: All-Hands Meeting</h3>
-  <button id="joinMeeting">Join Zoom</button>
-</div>
+            
+            <!-- Meeting Tracker Widget -->
+            <div class="meeting-tracker">
+                <h3>Next Up: All-Hands Meeting</h3>
+                <button id="joinMeeting">Join Zoom</button>
+            </div>
+            
             <nav>
                 <a href="#">Innovation Hub</a>
-                <span class="nav-divider" aria-hidden="true">-</span>
+                <span class="nav-divider" aria-hidden="true">|</span>
                 <a href="#">Employee Portal</a>
-                <span class="nav-divider" aria-hidden="true">-</span>
+                <span class="nav-divider" aria-hidden="true">|</span>
                 <a href="#">Future Workspace</a>
             </nav>
         </div>
@@ -607,6 +636,7 @@
     <main>
         <section class="welcome-banner">
             <h2>Welcome to NovaCorp</h2>
+            <p>Your gateway to company resources and collaboration</p>
         </section>
 
         <section class="dashboard">
@@ -626,8 +656,8 @@
                                 <span class="news-bullet" aria-hidden="true">•</span>
                                 <span class="news-title">Q4 Results Announced</span>
                             </div>
-                            <p class="news-excerpt">NowScope exceeded expectations with 25% growth in Q4. Our innovative solutions continue to drive success...</p>
-                            <a href="#" class="news-link">Read More</a>
+                            <p class="news-excerpt">NowScope exceeded expectations with 25% growth in Q4. Our innovative solutions continue to drive success across all sectors.</p>
+                            <a href="#" class="news-link">Read More →</a>
                         </div>
                         
                         <div class="news-item">
@@ -636,8 +666,8 @@
                                 <span class="news-bullet" aria-hidden="true">•</span>
                                 <span class="news-title">New Employee Benefits</span>
                             </div>
-                            <p class="news-excerpt">Enhanced healthcare and wellness benefits now available. Mental health support and flexible working arrangements...</p>
-                            <a href="#" class="news-link">Read More</a>
+                            <p class="news-excerpt">Enhanced healthcare and wellness benefits now available. Mental health support and flexible working arrangements included.</p>
+                            <a href="#" class="news-link">Read More →</a>
                         </div>
                         
                         <div class="news-item">
@@ -646,8 +676,8 @@
                                 <span class="news-bullet" aria-hidden="true">•</span>
                                 <span class="news-title">Innovation Lab Opening</span>
                             </div>
-                            <p class="news-excerpt">Our new state-of-the-art innovation lab is now open. Featuring VR development stations and AI research facilities...</p>
-                            <a href="#" class="news-link">Read More</a>
+                            <p class="news-excerpt">Our new state-of-the-art innovation lab is now open. Featuring VR development stations and AI research facilities.</p>
+                            <a href="#" class="news-link">Read More →</a>
                         </div>
                     </div>
                 </div>
@@ -657,14 +687,14 @@
                     <h3>Upcoming Events</h3>
                     <div class="event-item">
                         <h4>Quarterly All-Hands</h4>
-                        <p class="event-time">Monday, March 25th - 2:00 PM - 4:00 PM</p>
+                        <p class="event-time">Monday, March 25th • 2:00 PM - 4:00 PM</p>
                         <p>CEO presentation on company performance, upcoming initiatives, and Q&A session with leadership team.</p>
                         <button class="event-btn">Add to Calendar</button>
                     </div>
                     <div class="event-item">
                         <h4>Team Building Retreat</h4>
                         <p class="event-time">Saturday, March 23rd • 10:00 AM - 6:00 PM</p>
-                        <p>Escape to the mountains for a day of team building activities, outdoor adventures, and street scenes.</p>
+                        <p>Escape to the mountains for a day of team building activities, outdoor adventures, and relaxation.</p>
                         <button class="event-btn">Join Event</button>
                     </div>
                 </div>
@@ -675,19 +705,19 @@
                     <h4>Quick Resources</h4>
                     <div class="employee-card">
                         <div class="employee-avatar">
-                            <img src="ff.jpg" alt="Sarah Martinez portrait" width="50" height="50">
+                            <img src="https://via.placeholder.com/50" alt="Sarah Martinez portrait" width="50" height="50">
                         </div>
                         <div class="employee-info">
                             <h5>Sarah Martinez</h5>
                             <p>Senior AI Engineer</p>
-                            <a href="#" class="learn-more">Hover to learn more</a>
+                            <a href="#" class="learn-more">View profile →</a>
                         </div>
                     </div>
                     
                     <div class="quick-resources">
                         <div class="resource-item">
                             <div class="resource-icon">
-                                <img src="ff.jpg" alt="Handbook icon" width="24" height="24">
+                                <img src="https://via.placeholder.com/24" alt="Handbook icon" width="24" height="24">
                             </div>
                             <div class="resource-info">
                                 <h6>Employee Handbook</h6>
@@ -697,7 +727,7 @@
                         
                         <div class="resource-item">
                             <div class="resource-icon">
-                                <img src="do.jpg" alt="Payroll icon" width="24" height="24">
+                                <img src="https://via.placeholder.com/24" alt="Payroll icon" width="24" height="24">
                             </div>
                             <div class="resource-info">
                                 <h6>Payroll Portal</h6>
@@ -707,7 +737,7 @@
                         
                         <div class="resource-item">
                             <div class="resource-icon">
-                                <img src="cal.png" alt="Calendar icon" width="24" height="24">
+                                <img src="https://via.placeholder.com/24" alt="Calendar icon" width="24" height="24">
                             </div>
                             <div class="resource-info">
                                 <h6>Time Off</h6>
@@ -717,7 +747,7 @@
                         
                         <div class="resource-item">
                             <div class="resource-icon">
-                                <img src="sup.png" alt="Support icon" width="24" height="24">
+                                <img src="https://via.placeholder.com/24" alt="Support icon" width="24" height="24">
                             </div>
                             <div class="resource-info">
                                 <h6>IT Support</h6>
@@ -790,6 +820,22 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle functionality
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+
+        // Theme toggle functionality
+        document.getElementById('themeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        // Join meeting button functionality
+        document.getElementById('joinMeeting').addEventListener('click', function() {
+            alert('Redirecting to Zoom meeting...');
+            // In a real implementation, this would open the Zoom meeting link
+        });
+    </script>
 </body>
 </html>
