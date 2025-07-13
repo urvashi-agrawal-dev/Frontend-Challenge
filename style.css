@@ -1,56 +1,61 @@
-:root {
-    /* Color Scheme - Light Theme (Default) */
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --success-color: #2ecc71;
-    --warning-color: #f39c12;
-    --light-gray: #ecf0f1;
-    --medium-gray: #bdc3c7;
-    --dark-gray: #7f8c8d;
-    --white: #ffffff;
-    --black: #000000;
 
-    
-    /* Background Colors */
-    --primary-bg: #ffffff;
-    --secondary-bg: #f5f5f5;
-    --card-bg: #ffffff;
-    
-    /* Text Colors */
-    --text-color: #333333;
-    --text-light: #777777;
-    --text-on-dark: #f5f5f5;
-    
-    /* UI Elements */
-    --header-bg: #2c3e50;
-    --border-color: #e0e0e0;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    
-    /* Spacing */
-    --base-spacing: 1rem;
-    --border-radius: 8px;
-    
-    /* Transitions */
-    --transition-fast: 0.2s;
-    --transition-medium: 0.3s;
-    --transition-slow: 0.5s;
-    /* Light theme vars */
+:root {
+  /* Updated Color Scheme */
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --success-color: #2ecc71;
+  --warning-color: #f39c12;
+  --highlight-orange: #ff7043; /* Primary orange */
+  --highlight-orange-light: #ff8a65;
+  --highlight-orange-dark: #ffab40;
+  
+  /* Neutral Colors */
+  --white: #ffffff;
+  --light-gray: #ecf0f1;
+  --medium-gray: #bdc3c7;
+  --dark-gray: #7f8c8d;
+  --black: #212529;
+  
+  /* Background Colors */
   --primary-bg: #ffffff;
+  --secondary-bg: #f5f5f5;
+  --card-bg: #ffffff;
+  
+  /* Text Colors */
   --text-color: #333333;
+  --text-light: #777777;
+  --text-on-dark: #f5f5f5;
+  
+  /* UI Elements */
+  --header-bg: #2c3e50;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  /* Spacing */
+  --base-spacing: 1rem;
+  --border-radius: 8px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s;
+  --transition-medium: 0.3s;
+  --transition-slow: 0.5s;
 }
 
 [data-theme="dark"] {
-    /* Dark Theme Overrides */
-    --primary-bg: #121212;
-    --secondary-bg: #1e1e1e;
-    --text-color: #f5f5f5;
-    --text-light: #aaaaaa;
-    --header-bg: #1a1a1a;
-    --accent-color: #4dabf7;
-    --card-bg: #1e1e1e;
-    --border-color: #333333;
-    --shadow-color: rgba(0, 0, 0, 0.3);
+  /* Dark Theme Overrides */
+  --primary-bg: #121212;
+  --secondary-bg: #1e1e1e;
+  --text-color: #f5f5f5;
+  --text-light: #aaaaaa;
+  --header-bg: #1a1a1a;
+  --accent-color: #4dabf7;
+  --card-bg: #1e1e1e;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --highlight-orange: #ffab40;
+  --highlight-orange-light: #ffcc80;
+  --highlight-orange-dark: #ff9100;
 }
 
 /* Base Styles */
@@ -665,75 +670,46 @@ button.warning {
 
 /* Footer */
 footer {
-    background-color: var(--header-bg);
-    color: var(--white);
-    padding: calc(var(--base-spacing) * 2);
+  background-color: var(--header-bg);
+  color: var(--highlight-orange); /* Orange text */
+  padding: calc(var(--base-spacing) * 2);
+  transition: color var(--transition-medium);
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: calc(var(--base-spacing) * 2);
-    margin-bottom: calc(var(--base-spacing) * 2);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: calc(var(--base-spacing) * 2);
+  margin-bottom: calc(var(--base-spacing) * 2);
 }
 
-.footer-about h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--base-spacing);
-    color: var(--white);
-}
-
+.footer-about h3,
 .footer-links h4,
 .footer-contact h4 {
-    margin-bottom: var(--base-spacing);
-    font-size: 1.2rem;
-    color: var(--white);
+  color: var(--white); /* White headings */
 }
 
-.footer-links ul {
-    list-style: none;
+.footer-links a,
+.footer-legal a {
+  color: var(--highlight-orange-light);
+  opacity: 0.9;
+  transition: opacity var(--transition-fast);
 }
 
-.footer-links li {
-    margin-bottom: calc(var(--base-spacing) / 2);
-}
-
-.footer-links a {
-    color: var(--white);
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity var(--transition-fast) ease;
-}
-
-.footer-links a:hover {
-    opacity: 1;
-    text-decoration: underline;
+.footer-links a:hover,
+.footer-legal a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
 .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: var(--base-spacing);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 112, 67, 0.3);
+  padding-top: var(--base-spacing);
 }
 
-.footer-legal {
-    display: flex;
-    gap: var(--base-spacing);
+[data-theme="dark"] .footer-bottom {
+  border-top-color: rgba(255, 171, 64, 0.3);
 }
-
-.footer-legal a {
-    color: var(--white);
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity var(--transition-fast) ease;
-}
-
-.footer-legal a:hover {
-    opacity: 1;
-}
-
 /* Mobile Menu */
 .mobile-menu-toggle {
     display: none;
@@ -991,36 +967,38 @@ footer {
 /* Add this to your dark mode overrides */
 /* Light Mode */
 .events-section .event-item h4 {
-  color: #ff7043; /* Deep orange */
+  color: var(--highlight-orange);
 }
 
 .events-section .event-description {
-  color: #ff8a65; /* Medium orange */
+  color: var(--highlight-orange-light);
 }
 
-/* Dark Mode */
-[data-theme="dark"] .events-section .event-item h4 {
-  color: #ffab40; /* Brighter orange */
+.events-section .event-time {
+  color: var(--highlight-orange-dark);
 }
 
-[data-theme="dark"] .events-section .event-description {
-  color: #ffcc80; /* Light orange */
-}
-
-/* Event Time Styling */
-/* Add gradient backgrounds to event cards */
+/* Dark mode adjustments */
 .events-section .event-item {
-  background: linear-gradient(to right, rgba(255, 112, 67, 0.1), transparent);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  background: linear-gradient(
+    to right,
+    rgba(255, 112, 67, 0.1),
+    transparent
+  );
+  padding: var(--base-spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--base-spacing);
+  transition: all var(--transition-medium);
 }
 
 [data-theme="dark"] .events-section .event-item {
-  background: linear-gradient(to right, rgba(255, 171, 64, 0.15), transparent);
+  background: linear-gradient(
+    to right,
+    rgba(255, 171, 64, 0.15),
+    transparent
+  );
 }
 
-/* Hover effects */
 .events-section .event-item:hover {
   transform: translateX(5px);
   box-shadow: 0 4px 8px rgba(255, 112, 67, 0.2);
@@ -1029,16 +1007,12 @@ footer {
 [data-theme="dark"] .events-section .event-item:hover {
   box-shadow: 0 4px 8px rgba(255, 171, 64, 0.3);
 }
-/* Optional: Add decorative elements */
-.events-section .event-item:nth-child(1) p::before,
-.events-section .event-item:nth-child(2) p::before {
-  content: "• ";
-  color: #FF6D00;
-  font-weight: bold;
-}
 
-[data-theme="dark"] .events-section .event-item p::before {
-  color: #FFAB40;
+/* Optional: Add decorative elements */
+.events-section .event-item p::before {
+  content: "• ";
+  color: var(--highlight-orange);
+  font-weight: bold;
 }
 
 /* Light Mode Footer */
