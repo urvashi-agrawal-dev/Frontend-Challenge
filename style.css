@@ -250,51 +250,61 @@ nav span {
 /* ================ */
 /* Theme Toggle */
 /* ================ */
+:root {
+  /* Light Theme (default) */
+  --primary-bg: #ffffff;
+  --text-color: #333333;
+  --header-bg: #2c3e50;
+  --card-bg: #f8f9fa;
+  /* Add all other light theme variables */
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --primary-bg: #121212;
+  --text-color: #f5f5f5;
+  --header-bg: #1a1a1a;
+  --card-bg: #1e1e1e;
+  /* Add all other dark theme variables */
+}
+
+/* Theme Toggle Button */
+/* Theme Toggle Button Styling */
 .theme-toggle {
-  margin-left: var(--base-spacing);
-  display: flex;
-  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
 }
 
 #themeToggle {
-  background: transparent;
+  background: rgba(0,0,0,0.1);
   border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
   cursor: pointer;
-  font-size: 1.5rem;
-  padding: calc(var(--base-spacing) / 2);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  color: var(--white);
-  transition: all var(--transition-fast) ease;
+  justify-content: center;
+}
+
+/* Light mode button styling */
+[data-theme="light"] #themeToggle {
+  background: rgba(0,0,0,0.05);
+  color: #333;
+}
+
+/* Dark mode button styling */
+[data-theme="dark"] #themeToggle {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
 }
 
 #themeToggle:hover {
   transform: scale(1.1);
-}
-/* Dark Mode Specific Styles */
-[data-theme="dark"] {
-    --primary-bg: #121212;
-    --secondary-bg: #1e1e1e;
-    --text-color: #f5f5f5;
-    --text-light: #aaaaaa;
-    --header-bg: #1a1a1a;
-    --card-bg: #1e1e1e;
-    --border-color: #333333;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    
-    /* Ensure colors remain visible in dark mode */
-    --primary-color: #6a4c93;
-    --secondary-color: #3498db;
-    --accent-color: #ff7043;
-    --success-color: #2ecc71;
-    --warning-color: #f39c12;
-    --highlight-orange: #ffab40;
-    --highlight-orange-light: #ffcc80;
-    --highlight-orange-dark: #ff9100;
-}
-
-#themeToggle[aria-pressed="true"] {
-  color: var(--highlight-orange);
 }
 
 /* ================ */

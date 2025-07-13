@@ -340,17 +340,29 @@ window.addEventListener('error', (event) => {
     console.error('Unhandled error:', event.error);
     alert(`An error occurred: ${event.message}`);
 });
-
-document.getElementById('themeToggle').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  
+  // 1. Check saved preference or default to light
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  // 2. Set INITIAL button to show OPPOSITE of current theme
+  themeToggle.textContent = savedTheme === 'light' ? '🌙' : '☀️';
+  
+  // 3. Toggle functionality
+  themeToggle.addEventListener('click', function() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    // Apply new theme
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     
-    // Update button icon
-    this.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+    // Update button to show OPPOSITE of new theme
+    this.textContent = newTheme === 'light' ? '🌙' : '☀️';
+  });
 });
-
 // Service worker registration for PWA capabilities
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
