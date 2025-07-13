@@ -989,18 +989,15 @@ footer {
   background: linear-gradient(135deg, #6b8e23 0%, #556b2f 100%);
 }
 /* Add to your CSS */
-.event-title {
-  background: linear-gradient(90deg, #FF6B6B, #4ECDC4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 600;
+.event-card {
+  background: rgba(255,255,255,0.9); /* Slightly transparent */
+  border-left: 4px solid #f2910a; /* Orange accent */
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0 8px 8px 0;
 }
 
-.event-description {
-  color: #5E5E5E; /* Dark gray for light mode */
-}
-
-[data-theme="dark"] .event-description {
-  color: #E0E0E0; /* Light gray for dark mode */
+[data-theme="dark"] .event-card {
+  background: rgba(30,30,30,0.9);
+  border-left-color: #edaa0f; /* Yellow accent */
 }
