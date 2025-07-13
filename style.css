@@ -929,12 +929,23 @@ footer {
   margin-bottom: var(--base-spacing);
   border-left: 4px solid var(--highlight-orange);
 }
-
+/* Target the meeting tracker heading */
 .widget.meeting-tracker h3 {
-  color: var(--primary-color);
-  margin-bottom: calc(var(--base-spacing) / 2);
+    color: #FFD700; /* Bright yellow */
+    /* Or use your theme's yellow variable if you have one: */
+    /* color: var(--highlight-orange); */
 }
 
+/* If you want it to work with dark/light mode */
+[data-theme="light"] .widget.meeting-tracker h3 {
+    color: #FFD700; /* Yellow in light mode */
+}
+
+[data-theme="dark"] .widget.meeting-tracker h3 {
+    color: #FFD700; /* Same yellow in dark mode */
+    /* Or use a different yellow for dark mode if preferred */
+    /* color: #FFC000; */
+}
 #joinMeeting {
   background-color: var(--highlight-orange);
   color: var(--white);
