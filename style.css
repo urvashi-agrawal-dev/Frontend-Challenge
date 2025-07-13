@@ -1040,3 +1040,27 @@ footer {
 [data-theme="dark"] .events-section .event-item p::before {
   color: #FFAB40;
 }
+
+/* Light Mode Footer */
+footer {
+  color: #ff7043; /* Warm orange */
+}
+
+footer a {
+  color: #ff8a65; /* Slightly lighter orange */
+}
+
+footer a:hover {
+  color: pink; /* Darker orange on hover */
+}/* Dark Mode Footer */
+[data-theme="dark"] footer {
+  color: #ffab40; /* Brighter orange */
+}
+
+[data-theme="dark"] footer a {
+  color: #ffcc80; /* Lighter orange */
+}
+
+[data-theme="dark"] footer a:hover {
+  color: #ff9100; /* More vibrant orange */
+}
